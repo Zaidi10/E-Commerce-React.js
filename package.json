@@ -2,7 +2,7 @@
   "name": "tic-tac-toe",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://zaidi10.github.io/E-Commerce-Website-Reactjs",
+  "homepage": "http://zaidi10.github.io/E-Commerce-React.js",
   "dependencies": {
     "react": "^16.9.0",
     "react-dom": "^16.9.0",

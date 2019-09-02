@@ -14,7 +14,7 @@ export default class Filter extends Component {
               onChange={this.props.handleChangeSort}
             >
               <option value="">Select</option>
-              <option value="highest">lowerst to highest</option>
+              <option value="highest">lowest to highest</option>
               <option value="lowest">highest to lowest</option>
             </select>
           </label>

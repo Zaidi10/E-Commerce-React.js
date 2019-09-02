@@ -18,14 +18,15 @@ class App extends React.Component {
     this.handleRemoveCart = this.handleRemoveCart.bind(this);
   }
   componentWillMount() {
-    fetch("http://localhost:8000/products/")
+    fetch("https://api.myjson.com/bins/jg21f")
       .then(res => res.json())
       .then(data =>
         this.setState({
-          products: data,
-          filteredProducts: data
+          products: data.products,
+          filteredProducts: data.products
         })
       );
+
     if (localStorage.getItem("cartItems")) {
       this.setState({
         cartItems: JSON.parse(localStorage.getItem("cartItems"))
@@ -34,6 +35,7 @@ class App extends React.Component {
   }
   handleChangeSort(e) {
     this.setState({ sort: e.target.value });
+
     this.listProducts();
   }
   handleChangeSize(e) {
@@ -69,8 +71,11 @@ class App extends React.Component {
     });
   }
   listProducts() {
+    console.log(this.state.sort);
+    console.log(this.state.size);
     this.setState(state => {
       if (state.sort !== "") {
+        console.log(state);
         state.products.sort((a, b) =>
           state.sort === "lowest"
             ? a.price < b.price
@@ -80,14 +85,20 @@ class App extends React.Component {
             ? 1
             : -1
         );
-      } else state.products.sort((a, b) => (a.id < b.id ? 1 : -1));
-      if (state.size !== "") {
-        this.setState({
+        console.log(state);
+      } else {
+        state.products.sort((a, b) => (a.id < b.id ? 1 : -1));
+      }
+      console.log(state.size !== "");
+      if (state.size !== "" && state.size !== undefined) {
+        console.log("this if is running");
+        return {
           filteredProducts: state.products.filter(
             product => product.availableSizes.indexOf(state.size) >= 0
           )
-        });
+        };
       }
+      console.log(state);
       return { filteredProducts: state.products };
     });
   }
