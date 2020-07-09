@@ -18,12 +18,12 @@ class App extends React.Component {
     this.handleRemoveCart = this.handleRemoveCart.bind(this);
   }
   componentWillMount() {
-    fetch("https://api.myjson.com/bins/jg21f")
+    fetch("https://my-json-server.typicode.com/zaidi10/json-data/products")
       .then(res => res.json())
       .then(data =>
         this.setState({
-          products: data.products,
-          filteredProducts: data.products
+          products: data,
+          filteredProducts: data
         })
       );
 
@@ -82,8 +82,8 @@ class App extends React.Component {
               ? 1
               : -1
             : a.price > b.price
-            ? 1
-            : -1
+              ? 1
+              : -1
         );
         console.log(state);
       } else {
