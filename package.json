@@ -1,5 +1,5 @@
 {
-  "name": "tic-tac-toe",
+  "name": "ecomerce",
   "version": "0.1.0",
   "private": true,
   "homepage": "http://zaidi10.github.io/E-Commerce-React.js",
@@ -32,6 +32,6 @@
     ]
   },
   "devDependencies": {
-    "gh-pages": "^2.1.1"
+    "gh-pages": "^2.2.0"
   }
 }
